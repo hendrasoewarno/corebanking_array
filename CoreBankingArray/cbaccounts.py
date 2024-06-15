@@ -5,13 +5,17 @@ class Account:
     
     #default pin 123456
     def __init__(self, noac, nama, nik):
-        self.noac=noac
+        self.__noac=noac
         self.nama=nama.upper()
         self.nik=nik
         self.__pin="123456"        
         self.__balance=0
         #masing-masing Account punya tabel transaksi masing2
         self.transaction = LinkedListTransaction()
+        
+    #periksa noac sesuai?
+    def isNoAC(self, noac):
+        return self.__noac==noaca
 
     #tambahkan pemeriksaan amount > 0
     def deposit(self, cabang, amount):    
@@ -26,13 +30,13 @@ class Account:
 
     def show(self):
         print("\n\n>>RINCIAN ACCOUNT\n\n")
-        print("No.AC:", self.noac)
+        print("No.AC:", self.__noac)
         print("Nama:", self.nama)
         print("NIK:", self.nik)
         print("Amount:", f'{self.__balance:,}')
 
     def print(self):
-        print(self.noac.ljust(14), self.nama.ljust(50), self.nik.ljust(16))
+        print(self.__noac.ljust(14), self.nama.ljust(50), self.nik.ljust(16))
 
 class ArrayAccount:
     def __init__(self):
@@ -51,7 +55,7 @@ class ArrayAccount:
         lastPosition = 0
         while lastPosition < self.count:
             account=self.array[lastPosition]
-            if account.noac==noac:
+            if account.isNoAC(noac):
                 return account
             lastPosition+=1
         return None
