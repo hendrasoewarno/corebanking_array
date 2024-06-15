@@ -8,20 +8,20 @@ class Account:
         self.noac=noac
         self.nama=nama.upper()
         self.nik=nik
-        self.pin="123456"        
-        self.balance=0
+        self.__pin="123456"        
+        self.__balance=0
         #masing-masing Account punya tabel transaksi masing2
         self.transaction = LinkedListTransaction()
 
     #tambahkan pemeriksaan amount > 0
     def deposit(self, cabang, amount):    
-        self.balance+=amount
+        self.__balance+=amount
         self.transaction.newTransaction(cabang, "12", amount)
         
     #tambahkan pemeriksaan amount > 0
     #tambahkan pemeriksaan setelah penarikan tidak boleh < dari minDeposit
     def withdraw(self, cabang, amount):
-        self.balance-=amount
+        self.__balance-=amount
         self.transaction.newTransaction(cabang, "21", amount)
 
     def show(self):
@@ -29,7 +29,7 @@ class Account:
         print("No.AC:", self.noac)
         print("Nama:", self.nama)
         print("NIK:", self.nik)
-        print("Amount:", f'{self.balance:,}')
+        print("Amount:", f'{self.__balance:,}')
 
     def print(self):
         print(self.noac.ljust(14), self.nama.ljust(50), self.nik.ljust(16))
@@ -80,12 +80,12 @@ class ArrayAccount:
 #myAccount = savingAccount.find(account1.noac)
 #myAccount.show()
 #myAccount.deposit(cabang, 100000)
-#assert myAccount.balance==100000, "Error Deposit, new balance 100000 not match"
+#assert myAccount.__balance==100000, "Error Deposit, new balance 100000 not match"
 #myAccount.show()
 #myAccount.deposit(cabang, 100000)
-#assert myAccount.balance==100000, "Error Deposit, new balance 200000 not match"
+#assert myAccount.__balance==100000, "Error Deposit, new balance 200000 not match"
 #myAccount.show()
 #myAccount.withdraw(cabang, 100000)
-#assert myAccount.balance==100000, "Error Deposit, new balance 100000 not match"
+#assert myAccount.__balance==100000, "Error Deposit, new balance 100000 not match"
 #myAccount.show()
 #myAccount.transaction.list()
