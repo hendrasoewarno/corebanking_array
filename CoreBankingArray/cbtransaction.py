@@ -22,7 +22,7 @@ class Transaction:
     def print(self):
         print(self.date, self.code.rjust(4), f'{self.amount:,}'.rjust(15), str(self.txid).ljust(15), self.timestamp)
               
-class LinkedListTransaction:
+class ArrayTransaction:
     def __init__(self):
         self.array=[]
         self.count=0
