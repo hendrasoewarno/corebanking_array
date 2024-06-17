@@ -15,7 +15,7 @@ class Account:
         
     #periksa noac sesuai?
     def isNoAC(self, noac):
-        return self.__noac==noaca
+        return self.__noac==noac
 
     #tambahkan pemeriksaan amount > 0
     def deposit(self, cabang, amount):    
