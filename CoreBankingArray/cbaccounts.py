@@ -11,7 +11,7 @@ class Account:
         self.__pin="123456"        
         self.__balance=0
         #masing-masing Account punya tabel transaksi masing2
-        self.transaction = LinkedListTransaction()
+        self.transaction = ArrayTransaction()
         
     #periksa noac sesuai?
     def isNoAC(self, noac):
